@@ -10,7 +10,7 @@ class Game():
         #visuals
         self.tileSize = 50
         self.zoom = 1.0
-        self.cameraPosition = ((self.worldSize / 2) * self.zoom , (self.worldSize / 2) * self.zoom)
+        self.cameraPosition = [(self.worldSize / 2) * self.zoom , (self.worldSize / 2) * self.zoom]
         self.screen = screen
         self.screenSize = screenSize
 
@@ -36,12 +36,20 @@ class Game():
         if self.keys[pygame.K_d]:
             self.cameraPosition[0] += 1
 
-        #using mouse scroll to zoom in and out
-        scroll = pygame.mouse.get_pressed()[1]
-        if scroll > 0:
-            self.zoom *= 1.1
-        if scroll < 0:
-            self.zoom /= 1.1
+        #also using Q and E to zoom
+        if self.keys[pygame.K_q]:
+            self.zoom -= 0.05
+        if self.keys[pygame.K_e]:
+            self.zoom += 0.05
+        #mousewheel for zooming
+        for event in pygame.event.get():
+            if event.type == pygame.MOUSEWHEEL:
+                print("Scroll")
+                print(event.x, event.y)
+                if event.y < 0:
+                    self.zoom += 0.05
+                elif event.y > 0:
+                    self.zoom -= 0.05
 
     def update(self):
         self.interactions()

@@ -18,6 +18,6 @@ def draw(screen, world, zoom, cameraPos, tileSize, screenSize):
 
             if tileX >= 0 and tileX < screenSize[0] and tileY >= 0 and tileY < screenSize[1]:
                 tileColor = (255, 255, 255) if world["tiles"][x][y] == 0 else (0, 0, 0)
-                pygame.draw.rect(screen, tileColor, (tileX * tileSize, tileY * tileSize, tileSize, tileSize), 3)
+                pygame.draw.rect(screen, tileColor, (tileX * tileSize, tileY * tileSize, tileSize / zoom, tileSize / zoom), 3)
 
 
