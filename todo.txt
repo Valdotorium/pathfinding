@@ -1,7 +1,7 @@
 DEVELOPMENT PLAN
 
 --FIRST THREE WEEK PLAN--
-29.6.2024 - tile grid movement and indexing
+DONE (+0DAYS) - 29.6.2024 - tile grid movement and indexing
 [30.6 - 5.7 create menu building tools]
 7.7  - world generator
 10.7 - world generation menu
