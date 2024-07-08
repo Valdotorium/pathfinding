@@ -18,8 +18,7 @@ async def main():
                 running = False
         Phoenix.update()
         screen.fill((0,0,0))
-        clock.tick(60)
+        clock.tick(30)
+        await asyncio.sleep(0)
 
-
-if __name__ == "__main__":
-    asyncio.run(main())
+asyncio.run(main())

@@ -3,7 +3,7 @@ import res.world as world
 class Game():
     def __init__(self, screen, screenSize):
         #world data
-        self.worldSize = 100
+        self.worldSize = 200
         #generate world data from world.py module
         self.world = world.createWorld(self.worldSize)
 
@@ -50,6 +50,7 @@ class Game():
                     self.zoom += 0.05
                 elif event.y > 0:
                     self.zoom -= 0.05
+            
 
     def update(self):
         self.interactions()
