@@ -1,0 +1,21 @@
+Prototype Game for a larger project i consider programming in the future, similar to mini motorways
+
+Principles:
+A world made up of ground, water, and mountain tiles is generated
+In this world, small cities start generating slowly
+The player has to connect these cities with a efficient road network.
+Cars randomly spawn in cities and want to go to another cities. Cars can not go through cities,
+making this a game where a player essentially manages a highway network. 
+The roads can be upgraded to accommodate more cars at once.
+The game ends when the road network is clogged up or if the player runs out of money.
+
+
+Othe (more complex) game idea:
+no cities, but houses
+more detailed road system, allowing some classic highway interchanges
+animated cars
+
+PERFORMANCE:
+zooming and pygame.draw seem to be not that performance killing. (but use less than 2000 times per frame)
+Idea: put houses etc on surfaces mad before starting and blit that on the screen (use less than 5000 times per frame)
+COLOR STANDARDS:
