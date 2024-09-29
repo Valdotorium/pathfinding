@@ -16,16 +16,34 @@ class Game():
 
         #options from options.json file
 
-        #others
+        #interaction
         self.mousePos = pygame.mouse.get_pos()
         self.clickPos = pygame.mouse.get_pressed()[0]
         self.keys = pygame.key.get_pressed()
+        self.clickedTicks = 0
+        self.isClicked = False
     def interactions(self):
         #update mouse click state and position and detect key presses
-        self.mousePos = pygame.mouse.get_pos()
-        self.clickPos = pygame.mouse.get_pressed()[0]
-        self.keys = pygame.key.get_pressed()
 
+        #stored for dragging
+        prevMousePos = self.mousePos
+        self.mousePos = pygame.mouse.get_pos()
+        self.keys = pygame.key.get_pressed()
+        wasClicked = self.isClicked
+
+        self.isClicked = pygame.mouse.get_pressed()[0]
+        if self.isClicked and not wasClicked:
+            self.clickPos = pygame.mouse.get_pos()
+        
+        if self.isClicked:
+            self.clickedTicks += 1
+        else:
+            self.clickedTicks = 0
+
+        if self.clickedTicks != 0:
+            #dragging here
+            pass
+        
         #using WASD to move camera position
         if self.keys[pygame.K_w]:
             self.cameraPosition[1] -= 1
@@ -50,6 +68,8 @@ class Game():
                     self.zoom += 0.05
                 elif event.y > 0:
                     self.zoom -= 0.05
+                    
+        
             
 
     def update(self):
