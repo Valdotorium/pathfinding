@@ -43,6 +43,11 @@ class Game():
         self.keys = pygame.key.get_pressed()
         wasClicked = self.isClicked
 
+        if self.clickedTicks > 2:
+            #difference between prevmousepos and mousepos
+            diff = [self.mousePos[0] - prevMousePos[0], self.mousePos[1] - prevMousePos[1]]
+            
+            self.cameraPosition = [self.cameraPosition[0] - diff[0] / self.tileSize / self.zoom, self.cameraPosition[1] - diff[1] / self.tileSize / self.zoom]
         #interaction subfunctions
 
         self.isClicked = pygame.mouse.get_pressed()[0]
@@ -55,11 +60,6 @@ class Game():
         else:
             self.clickedTicks = 0
 
-        if self.clickedTicks != 0:
-            #difference between prevmousepos and mousepos
-            diff = [self.mousePos[0] - prevMousePos[0], self.mousePos[1] - prevMousePos[1]]
-            
-            self.cameraPosition = [self.cameraPosition[0] - diff[0] / self.tileSize / self.zoom, self.cameraPosition[1] - diff[1] / self.tileSize / self.zoom]
         
         #using WASD to move camera position
         if self.keys[pygame.K_w]:
