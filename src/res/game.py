@@ -43,7 +43,7 @@ class Game():
         self.keys = pygame.key.get_pressed()
         wasClicked = self.isClicked
 
-        if self.clickedTicks > 2:
+        if self.clickedTicks > 3:
             #difference between prevmousepos and mousepos
             diff = [self.mousePos[0] - prevMousePos[0], self.mousePos[1] - prevMousePos[1]]
             
@@ -51,7 +51,7 @@ class Game():
         #interaction subfunctions
 
         self.isClicked = pygame.mouse.get_pressed()[0]
-        if self.isClicked and not wasClicked:
+        if self.clickedTicks == 2: 
             self.clickPos = pygame.mouse.get_pos()
             self.clickTile()
         
