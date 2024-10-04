@@ -1,5 +1,6 @@
 import pygame
 import res.world as world
+import res.astar as astar
 class Game():
     def __init__(self, screen, screenSize):
         #world data
@@ -70,6 +71,8 @@ class Game():
             self.cameraPosition[0] -= .1
         if self.keys[pygame.K_d]:
             self.cameraPosition[0] += .1
+        if self.keys[pygame.K_j]:
+            astar.astar(self.world)
 
         #also using Q and E to zoom
         if self.keys[pygame.K_q]:
